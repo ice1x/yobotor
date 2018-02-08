@@ -1,3 +1,6 @@
 .gitignore
 youtubeLinks.txt
 *.pyc
+.idea
+*.log
+.idea/*
