@@ -2,7 +2,7 @@ import os
 import sys
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium import webdriver
-from random import randrange
+from random import randrange, shuffle
 from time import sleep
 
 
@@ -55,6 +55,7 @@ def get_uri(uri):
 if __name__ == "__main__":
     counter = 0
     while counter < VISITS:
+        shuffle(links)
         for uri in links:
             counter += 1
             get_uri(uri)
