@@ -34,10 +34,8 @@ def get_random_timeout():
 
 
 def get_browser(binary=None):
-    global browser
     # only one instance of a browser opens, remove global for multiple instances
-    if not browser:
-        browser = webdriver.Firefox(firefox_binary=binary)
+    browser = webdriver.Firefox(firefox_binary=binary)
     return browser
 
 
