@@ -1,13 +1,13 @@
 import os
 import sys
-from selenium.webdriver.firefox.firefox_BINARY import FirefoxBINARY
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium import webdriver
 from random import randrange
 from time import sleep
 
 
 # path to the firefox BINARY inside the Tor package
-BINARY = '/Applications/TorBrowser.app/Contents/MacOS/firefox'
+binary = '/Applications/TorBrowser.app/Contents/MacOS/firefox'
 
 VISITS = sys.argv[1]
 LINKS = sys.argv[2]
@@ -22,9 +22,9 @@ with open(os.path.abspath(LINKS)) as f:
 links = [x.strip() for x in links]
 print links
 
-if os.path.exists(BINARY) is False:
+if os.path.exists(binary) is False:
     raise ValueError("The BINARY path to Tor firefox does not exist.")
-firefox_BINARY = FirefoxBINARY(BINARY)
+firefox_binary = FirefoxBinary(binary)
 
 browser = None
 
@@ -33,11 +33,11 @@ def get_random_timeout():
     return randrange(MIN_WATCH, MAX_WATCH)
 
 
-def get_browser(BINARY=None):
+def get_browser(binary=None):
     global browser
     # only one instance of a browser opens, remove global for multiple instances
     if not browser:
-        browser = webdriver.Firefox(firefox_BINARY=BINARY)
+        browser = webdriver.Firefox(firefox_binary=binary)
     return browser
 
 
@@ -45,7 +45,7 @@ def get_uri(uri):
     timeout = get_random_timeout()
     print uri
     print "Timeout: %i" % timeout
-    browser = get_browser(BINARY=firefox_BINARY)
+    browser = get_browser(binary=firefox_binary)
     browser.get(uri)
 
     sleep(timeout)
