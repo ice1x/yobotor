@@ -4,7 +4,7 @@ Tor GUI should be launched before the script.
 
 # Usage
 ```sh
- $ python youtube.py [visits] [youtubeLinks.txt] [minWatch] [maxWatch]
+ $ python yobotor.py [visits] [youtubeLinks.txt] [minWatch] [maxWatch]
  ```
 
 # Help
